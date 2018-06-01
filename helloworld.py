@@ -5,7 +5,7 @@ yPrime = str(input("f ' (x)="))#asks for a derivative
 xValue = int(input("where does your approximation start? "))#asks where the method begins
 rePeat = int(input("how many times should I approximate? "))#asks how many times the process should be repeated
 print("")#this just creates an empty line that makes the output look nicer
-print("The approximations of x=0 (in order from first to last):")
+print("The approximations of y=0 (in order from first to last):")
 
 def funcTion():
     yFunctionNew = ""
