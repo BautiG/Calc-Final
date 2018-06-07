@@ -52,6 +52,7 @@ while counTer<xEnd:
     deriVative = (rightPoint-yFunctionNew)/.001
     
     print("the derivative of the function at x=",xValue,"is ",deriVative)
+    print("")
     
     xValue += 1
     
