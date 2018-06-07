@@ -1,0 +1,58 @@
+import math #brings in the basic python math used in the rest of the program
+
+yFunction = str(input("f(x)="))#asks for a function
+xValue = int(input("where does your approximation start? "))#asks where the method begins
+xEnd = int(input("where does your approimation end? "))
+print("")#this just creates an empty line that makes the output look nicer
+
+def funcTion():
+    #this creates a new string that is the function of x at a value
+    yFunctionNew = ""
+    for i in range(len(yFunction)):
+        if yFunction[i] == "x":
+            yFunctionNew += str(xValue)
+        else:
+            yFunctionNew += yFunction[i]
+    i += 1
+    
+    yFunctionNew = eval(yFunctionNew)
+    #print(yFunctionNew)
+
+funcTion()
+
+def functionRight():
+    rightPoint = ""
+    for i in range(len(yFunction)):
+        if yFunction[i] == "x":
+            rightPoint += str(xValue+.001)
+        else:
+            rightPoint += yFunction[i]
+    i += 1
+    
+    rightPoint = eval(rightPoint)
+    #print(rightPoint)
+
+functionRight()
+
+yFunctionNew = eval(yFunctionNew)
+rightPoint = eval(rightPoint)
+
+deriVative = (rightPoint-yFunctionNew)/.001
+
+counTer = 0
+
+while counTer<xEnd:
+    funcTion()
+    functionRight()
+    
+    yFunctionNew = eval(yFunctionNew)
+    rightPoint = eval(rightPoint)
+
+    
+    deriVative = (rightPoint-yFunctionNew)/.001
+    
+    print("the derivative of the function at x=",xValue,"is ",deriVative)
+    
+    xValue += 1
+    
+    counTer += 1
