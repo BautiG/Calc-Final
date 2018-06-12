@@ -1,7 +1,6 @@
 import math #brings in the basic python math used in the rest of the program
 
 yFunction = str(input("f(x)="))#asks for a function
-yPrime = str(input("f ' (x)="))#asks for a derivative
 xValue = int(input("where does your approximation start? "))#asks where the method begins
 rePeat = int(input("how many times should I approximate? "))#asks how many times the process should be repeated
 print("")#this just creates an empty line that makes the output look nicer
@@ -20,29 +19,29 @@ def funcTion():
     yFunctionNew = eval(yFunctionNew)
     #print(yFunctionNew)
 
-def deriVative():
-    yPrimeNew = ""
-    for i in range(len(yPrime)):
-        if yPrime[i] == "x":
-            yPrimeNew += str(xValue)
+def functionRight():
+    rightPoint = ""
+    for i in range(len(yFunction)):
+        if yFunction[i] == "x":
+            rightPoint += str(xValue+.001)
         else:
-            yPrimeNew += yPrime[i]
+            rightPoint += yFunction[i]
     i += 1
     
-    #print(yPrimeNew)
-    yPrimeNew = eval(yPrimeNew)
-    #print(yPrimeNew)
-
+    rightPoint = eval(rightPoint)
+    #print(rightPoint)
 
 counTer = 0
 while counTer < rePeat:
     funcTion()
-    deriVative()
+    functionRight()
 
     yFunctionNew = eval(yFunctionNew)
-    yPrimeNew = eval(yPrimeNew)
+    rightPoint = eval(rightPoint)
     
-    newGuess = xValue - (yFunctionNew/yPrimeNew)
+    deriVative = (rightPoint-yFunctionNew)/.001
+    
+    newGuess = xValue - (yFunctionNew/deriVative)
     print(newGuess)
     xValue = newGuess
     counTer += 1
